@@ -1,22 +1,70 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      title: "Laba 1",
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Лабораторная работа 1"),
-          backgroundColor: Colors.purpleAccent,
-        ),
-        body: Container(
-          margin: EdgeInsets.only(top: 32.0),
-          color: Colors.pink,
-          child: const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              "Hello World",
-              style: TextStyle(color: Colors.white, fontSize: 32.0),
+    title: "Laba 2",
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text("Кривенко В. В. "),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Center(
+          child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/keka1.png',
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-      ),
-    ));
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/keka2.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/keka3.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/monya1.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/monya2.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            width: 96.0,
+            height: 96.0,
+            margin: const EdgeInsets.only(top: 12.0),
+            child: Image.asset(
+              'assets/monya3.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      )),
+    )));
