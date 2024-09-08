@@ -15,7 +15,9 @@ class EquationResultScreen extends StatelessWidget {
       if (state is MainScreenUpdateState) {
         return Container(
             padding: const EdgeInsets.all(24.0),
+            width: double.infinity,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "D=${state.d >= 0 ? state.d : "Подкоренное выражение отрицательное"}",
@@ -40,14 +42,19 @@ class EquationResultScreen extends StatelessWidget {
                   child: Text('X2=${state.x2}',
                       style: const TextStyle(fontSize: 18.0)),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 16.0),
-                  child: FilledButton(
-                      onPressed: () {
-                        BlocProvider.of<MainScreenCubit>(context)
-                            .changeMode(ModeType.form);
-                      },
-                      child: const Text("Вернуться к форме")),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FilledButton(
+                        onPressed: () {
+                          BlocProvider.of<MainScreenCubit>(context)
+                              .changeMode(ModeType.form);
+                        },
+                        child: const Text("Вернуться к форме")),
+                  ],
                 )
               ],
             ));
