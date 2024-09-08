@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:tusur_flutter/src/screens/index.dart';
 import 'package:tusur_flutter/src/ui/coefficient_text_field.dart';
 
+class EquationFormType {
+  final String coefA;
+  final String coefB;
+  final String coefC;
+
+  const EquationFormType(
+      {required this.coefA, required this.coefB, required this.coefC});
+}
+
 class QuadraticEquationForm extends StatefulWidget {
-  const QuadraticEquationForm({super.key});
+  final Function(double a, double b, double c) onSubmit;
+  final EquationFormType baseValues;
+
+  const QuadraticEquationForm(
+      {super.key, required this.onSubmit, required this.baseValues});
+
   @override
   State<QuadraticEquationForm> createState() => _QuadraticEquationFormState();
 }
@@ -24,14 +37,8 @@ class _QuadraticEquationFormState extends State<QuadraticEquationForm> {
 
   _handleCalcPressed() {
     if (_formKey.currentState!.validate() && _isAgreement) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => EquationResultScreen(
-                    coefA: double.parse(_controllerA.text),
-                    coefB: double.parse(_controllerB.text),
-                    coefC: double.parse(_controllerC.text),
-                  )));
+      widget.onSubmit(double.parse(_controllerA.text),
+          double.parse(_controllerB.text), double.parse(_controllerC.text));
     }
 
     if (!_isAgreement) {
@@ -39,6 +46,14 @@ class _QuadraticEquationFormState extends State<QuadraticEquationForm> {
     } else {
       setState(() => _isAgreementError = false);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controllerA.text = widget.baseValues.coefA;
+    _controllerB.text = widget.baseValues.coefB;
+    _controllerC.text = widget.baseValues.coefC;
   }
 
   @override
