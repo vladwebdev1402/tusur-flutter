@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/helpers.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
+import 'package:tusur_flutter/services/db.dart';
 
 class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit()
@@ -54,5 +55,19 @@ class MainScreenCubit extends Cubit<MainScreenState> {
         coefA: this.coefA,
         coefB: this.coefB,
         coefC: this.coefC));
+
+    _addEqueationInDatabase(coefA, coefB, coefC);
+  }
+
+  Future<void> _addEqueationInDatabase(
+      double coefA, double coefB, double coefC) async {
+    await DBProvier.db.addEquation({
+      "x1": x1,
+      "x2": x2,
+      "d": d,
+      "coefA": coefA,
+      "coefB": coefB,
+      "coefC": coefC,
+    });
   }
 }
