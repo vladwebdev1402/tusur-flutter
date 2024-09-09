@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tusur_flutter/src/ui/coefficient_text_field.dart';
+import 'package:tusur_flutter/ui/coefficient_text_field.dart';
 
 class EquationFormType {
   final String coefA;

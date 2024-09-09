@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tusur_flutter/src/screens/cubit/helpers.dart';
-import 'package:tusur_flutter/src/screens/cubit/main_screen_state.dart';
+import 'package:tusur_flutter/screens/main_screan/cubit/helpers.dart';
+import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
 
 class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit()

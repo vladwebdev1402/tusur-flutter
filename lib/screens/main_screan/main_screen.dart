@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tusur_flutter/src/form/quadratic_equation_form.dart';
-import 'package:tusur_flutter/src/screens/cubit/main_screen_cubit.dart';
-import 'package:tusur_flutter/src/screens/cubit/main_screen_state.dart';
-import 'package:tusur_flutter/src/screens/equation_result_screen.dart';
+import 'package:tusur_flutter/form/quadratic_equation_form.dart';
+import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_cubit.dart';
+import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
+import 'package:tusur_flutter/screens/main_screan/equation_result_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
