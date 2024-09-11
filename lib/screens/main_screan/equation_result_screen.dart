@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_cubit.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
-import 'package:tusur_flutter/services/db.dart';
 
 class EquationResultScreen extends StatelessWidget {
   const EquationResultScreen({

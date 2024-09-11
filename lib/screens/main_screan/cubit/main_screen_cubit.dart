@@ -1,9 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tusur_flutter/screens/main_screan/cubit/helpers.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
 import 'package:tusur_flutter/services/db.dart';
+import 'package:tusur_flutter/shared/helpers.dart';
 
 class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit()
@@ -64,7 +63,7 @@ class MainScreenCubit extends Cubit<MainScreenState> {
     await DBProvier.db.addEquation({
       "x1": x1,
       "x2": x2,
-      "d": d,
+      "d": d.isNaN ? null : d,
       "coefA": coefA,
       "coefB": coefB,
       "coefC": coefC,

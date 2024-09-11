@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
-const int dbVersion = 1;
+const int dbVersion = 2;
 const String tableName = "Equation";
 
 class DBProvier {
@@ -34,7 +34,7 @@ class DBProvier {
       coefA FLOAT NOT NULL,
       coefB FLOAT NOT NULL,
       coefC FLOAT NOT NULL,
-      d FLOAT NOT NULL,
+      d FLOAT NULL,
       x1 FLOAT NULL,
       x2 FLOAT NULL
     );

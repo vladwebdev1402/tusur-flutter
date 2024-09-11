@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tusur_flutter/form/quadratic_equation_form.dart';
+import 'package:tusur_flutter/screens/equations_screen/equations_screen_provider.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_cubit.dart';
 import 'package:tusur_flutter/screens/main_screan/cubit/main_screen_state.dart';
 import 'package:tusur_flutter/screens/main_screan/equation_result_screen.dart';
@@ -21,6 +22,15 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const EquationsScreenProvider()),
+                );
+              },
+              icon: const Icon(Icons.list_rounded)),
           title: const Text("Кривенко В. В. "),
           backgroundColor: Colors.purpleAccent,
         ),
