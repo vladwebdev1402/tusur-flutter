@@ -1,25 +1,42 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-class EquationResultScreen extends StatelessWidget {
-  double? _x1;
-  double? _x2;
-  double _d = 0.0;
+class EquationResultScreen extends StatefulWidget {
+  final double coefA;
+  final double coefB;
+  final double coefC;
 
-  EquationResultScreen({
-    required double coefA,
-    required double coefB,
-    required double coefC,
+  const EquationResultScreen({
+    required this.coefA,
+    required this.coefB,
+    required this.coefC,
     super.key,
-  }) {
-    final double sqrtD = sqrt(coefB * coefB - 4 * coefA * coefC);
+  });
+
+  @override
+  State<StatefulWidget> createState() => _EquationResultScreenState();
+}
+
+class _EquationResultScreenState extends State<EquationResultScreen> {
+  double? x1;
+  double? x2;
+  late double d;
+
+  @override
+  void initState() {
+    super.initState();
+    _calculateRoots();
+  }
+
+  void _calculateRoots() {
+    final double sqrtD =
+        sqrt(widget.coefB * widget.coefB - 4 * widget.coefA * widget.coefC);
 
     if (sqrtD >= 0) {
-      _x1 = (-coefB + sqrtD) / (2 * coefA);
-      _x2 = (-coefB - sqrtD) / (2 * coefA);
+      x1 = (-widget.coefB + sqrtD) / (2 * widget.coefA);
+      x2 = (-widget.coefB - sqrtD) / (2 * widget.coefA);
     }
-
-    _d = sqrtD;
+    d = sqrtD;
   }
 
   @override
@@ -34,11 +51,11 @@ class EquationResultScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "D=${_d >= 0 ? _d : "Подкоренное выражение отрицательное"}",
+                "D=${d >= 0 ? d : "Подкоренное выражение отрицательное"}",
                 style: const TextStyle(fontSize: 18.0),
               ),
               Visibility(
-                  visible: _x1 == null && _x2 == null,
+                  visible: x1 == null && x2 == null,
                   child: Container(
                       margin: const EdgeInsets.only(top: 16.0),
                       child: const Text(
@@ -47,12 +64,12 @@ class EquationResultScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 18.0),
                       ))),
               Visibility(
-                  visible: !(_x1 == null),
+                  visible: !(x1 == null),
                   child:
-                      Text('X1=$_x1', style: const TextStyle(fontSize: 18.0))),
+                      Text('X1=$x1', style: const TextStyle(fontSize: 18.0))),
               Visibility(
-                visible: !(_x2 == null),
-                child: Text('X2=$_x2', style: const TextStyle(fontSize: 18.0)),
+                visible: !(x2 == null),
+                child: Text('X2=$x2', style: const TextStyle(fontSize: 18.0)),
               ),
             ],
           )),
