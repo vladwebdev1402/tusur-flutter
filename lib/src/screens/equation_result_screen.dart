@@ -49,6 +49,7 @@ class _EquationResultScreenState extends State<EquationResultScreen> {
       body: Container(
           padding: const EdgeInsets.all(24.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "D=${d >= 0 ? d : "Подкоренное выражение отрицательное"}",
