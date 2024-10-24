@@ -63,17 +63,28 @@ class _QuadraticEquationFormState extends State<QuadraticEquationForm> {
       child: Column(
         children: [
           CoefficientTextField(
-              "A:", _controllerA, _focusA, () => _focusB.requestFocus()),
+            coeff: "A:",
+            controller: _controllerA,
+            focusNode: _focusA,
+            onSubmitted: () => _focusB.requestFocus(),
+            isNotZero: true,
+          ),
           const SizedBox(
             height: 16.0,
           ),
           CoefficientTextField(
-              "B:", _controllerB, _focusB, () => _focusC.requestFocus()),
+              coeff: "B:",
+              controller: _controllerB,
+              focusNode: _focusB,
+              onSubmitted: () => _focusC.requestFocus()),
           const SizedBox(
             height: 16.0,
           ),
           CoefficientTextField(
-              "C:", _controllerC, _focusC, () => _handleCalcPressed()),
+              coeff: "C:",
+              controller: _controllerC,
+              focusNode: _focusC,
+              onSubmitted: () => _handleCalcPressed()),
           const SizedBox(
             height: 16.0,
           ),
