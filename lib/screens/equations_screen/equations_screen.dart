@@ -53,14 +53,14 @@ class EquationsScreen extends StatelessWidget {
                             Visibility(
                               visible: !(state.equations[index].x1 == null),
                               child: Text(
-                                'x1 = ${coefToString(state.equations[index].x1!)}',
+                                'x1 = ${coefToString(state.equations[index].x1)}',
                                 style: const TextStyle(fontSize: 18.0),
                               ),
                             ),
                             Visibility(
                               visible: !(state.equations[index].x2 == null),
                               child: Text(
-                                'x2 = ${coefToString(state.equations[index].x2!)}',
+                                'x2 = ${coefToString(state.equations[index].x2)}',
                                 style: const TextStyle(fontSize: 18.0),
                               ),
                             )

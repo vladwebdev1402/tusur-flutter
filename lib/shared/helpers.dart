@@ -1,4 +1,6 @@
-String coefToString(double coef) {
+String coefToString(double? coef) {
+  if (coef == null) return "";
+
   String coefStr = coef.toString();
 
   if (coefStr.endsWith('.0')) {
